@@ -47,7 +47,7 @@ def get_parameters_from_category(commit_data, selected_category, output_list):
     for element in category_elements:
         parameters = element["userStrings"].get_dynamic_member_names()
         for parameter in parameters:
-            parameter_name = element["userStrings"][parameter]["name"]
+            parameter_name = element["userStrings"][parameter]["DrawingWeight"]
             if parameter_name not in output_list:
                 output_list.append(parameter_name)
     return output_list
@@ -57,9 +57,9 @@ def get_parameters_from_category(commit_data, selected_category, output_list):
 def get_parameter_by_name(element, parameter_name, dict):
     parameters = element["userStrings"].get_dynamic_member_names()
     for parameter in parameters:
-        key = element["userStrings"][parameter]["name"]
+        key = element["userStrings"][parameter]["DrawingWeight"]
         if key == parameter_name:
-            dict[parameter_name] = element["userStrings"][parameter]["value"]
+            dict[parameter_name] = element["userStrings"][parameter]["DrawingWeight"]
     return dict
 
 
