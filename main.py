@@ -45,9 +45,9 @@ def get_categories_from_commit(commit_data, category_names):
 def get_parameters_from_category(commit_data, selected_category, output_list):
     category_elements = commit_data[selected_category]
     for element in category_elements:
-        parameters = element["parameters"].get_dynamic_member_names()
+        parameters = element["userStrings"].get_dynamic_member_names()
         for parameter in parameters:
-            parameter_name = element["parameters"][parameter]["name"]
+            parameter_name = element["userStrings"][parameter]["name"]
             if parameter_name not in output_list:
                 output_list.append(parameter_name)
     return output_list
@@ -55,11 +55,11 @@ def get_parameters_from_category(commit_data, selected_category, output_list):
 
 # gets parameter value from parameter name
 def get_parameter_by_name(element, parameter_name, dict):
-    parameters = element["parameters"].get_dynamic_member_names()
+    parameters = element["userStrings"].get_dynamic_member_names()
     for parameter in parameters:
-        key = element["parameters"][parameter]["name"]
+        key = element["userStrings"][parameter]["name"]
         if key == parameter_name:
-            dict[parameter_name] = element["parameters"][parameter]["value"]
+            dict[parameter_name] = element["userStrings"][parameter]["value"]
     return dict
 
 
@@ -76,7 +76,7 @@ with input:
     st.subheader("Inputs")
     commit_url = st.text_input(
         "Commit URL",
-        "https://latest.speckle.dev/streams/28dd9ad7ba/commits/c50598dcb2",
+        "https://speckle.xyz/streams/f43a2caa9c/commits/07834d297a",
     )
 
 # WRAPPER🌮
